@@ -1,0 +1,23 @@
+.header {
+  height: 10vh;
+  width: 100vw;
+  background-color: var(--white);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  position: fixed;
+}
+
+.header > button {
+  height: 80%;
+  width: 5%;
+  margin-right: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.header > button > img {
+  height: 100%;
+  width: auto;
+}

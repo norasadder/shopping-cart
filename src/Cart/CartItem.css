@@ -1,0 +1,23 @@
+.cart-item-container {
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-around;
+  margin: 5%;
+  height: 8vh;
+  align-items: center;
+}
+
+.cart-item-container > img {
+  height: 80%;
+}
+
+.cart-item-delete {
+  height: 60%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.cart-item-delete img {
+  height: 100%;
+}

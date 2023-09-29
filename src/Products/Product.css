@@ -1,0 +1,38 @@
+.product-container {
+  background-color: var(--green);
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  padding-top: 5px;
+  text-align: center;
+  border-radius: 20px;
+  color: var(--white);
+}
+
+.product-image {
+  height: 100px;
+  margin-top: 1%;
+}
+
+.product-image img {
+  height: 100%;
+  width: auto;
+}
+
+.add-to-cart-button {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: var(--navy);
+  color: var(--white);
+  font-size: 16px;
+}
+
+.product-price {
+  font-size: 16px;
+}
+
+.product-name {
+  font-size: 20px;
+}
