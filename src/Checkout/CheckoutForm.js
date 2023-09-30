@@ -1,12 +1,11 @@
 import { useState } from "react";
 import "./CheckoutForm.css";
-export default function CheckoutForm({
-  cartItems,
-  setCartItems,
-  totalAmount,
-  setTotalAmount,
-  setCheckout,
-}) {
+import { useContext } from "react";
+import { CartItemsContext } from "../Contexts/cartItemsContext";
+import { totalAmountContext } from "../Contexts/totalAmountContext";
+export default function CheckoutForm({ setCheckout }) {
+  const { cartItems, setCartItems } = useContext(CartItemsContext);
+  const { totalAmount, setTotalAmount } = useContext(totalAmountContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 

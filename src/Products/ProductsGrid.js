@@ -1,22 +1,18 @@
 import "./ProductsGrid.css";
+import { useState } from "react";
 import Product from "./Product";
-export default function ProductsGrid({
-  products,
-  addCartItem,
-  setItemID,
-  itemID,
-}) {
+
+import { itemIDContext } from "../Contexts/itemIDContext";
+
+export default function ProductsGrid({ products }) {
+  const [itemID, setItemID] = useState(0);
   return (
-    <div className="products-container">
-      {products.map((product) => (
-        <Product
-          {...product}
-          key={product.name}
-          addCartItem={addCartItem}
-          setItemID={setItemID}
-          itemID={itemID}
-        />
-      ))}
-    </div>
+    <itemIDContext.Provider value={{ itemID, setItemID }}>
+      <div className="products-container">
+        {products.map((product) => (
+          <Product {...product} key={product.name} />
+        ))}
+      </div>
+    </itemIDContext.Provider>
   );
 }
