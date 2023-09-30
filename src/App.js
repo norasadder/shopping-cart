@@ -3,12 +3,14 @@ import "./App.css";
 import Header from "./Header/Header";
 import Cart from "./Cart/Cart";
 import ProductsGrid from "./Products/ProductsGrid";
+import CheckoutForm from "./Checkout/CheckoutForm";
 
 export default function App() {
   const [displayCart, setDisplayCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
   const [itemID, setItemID] = useState(0);
+  const [checkout, setCheckout] = useState(false);
 
   function toggleCartDisplay() {
     setDisplayCart((prev) => !prev);
@@ -39,12 +41,22 @@ export default function App() {
 
   return (
     <div className="full-app">
+      {checkout && (
+        <CheckoutForm
+          cartItems={cartItems}
+          setCartItems={setCartItems}
+          totalAmount={totalAmount}
+          setTotalAmount={setTotalAmount}
+          setCheckout={setCheckout}
+        />
+      )}
       <Header onClick={toggleCartDisplay} />
       {displayCart && (
         <Cart
           cartItems={cartItems}
           total={totalAmount}
           deleteCartItem={deleteCartItem}
+          setCheckout={setCheckout}
         />
       )}
       <ProductsGrid

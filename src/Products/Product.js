@@ -13,10 +13,10 @@ export default function Product({
   }
   return (
     <div className="product-container">
-      <p className="product-name">{name}</p>
       <div className="product-image">
         <img src={require("../images/box.png")}></img>
       </div>
+      <p className="product-name">{name}</p>
       <p className="product-price">{price}</p>
       <button className="add-to-cart-button" onClick={handleAddToCart}>
         Add To Cart

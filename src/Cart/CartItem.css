@@ -5,6 +5,7 @@
   margin: 5%;
   height: 8vh;
   align-items: center;
+  border-radius: 10px;
 }
 
 .cart-item-container > img {
