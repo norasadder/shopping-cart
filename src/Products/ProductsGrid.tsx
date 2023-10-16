@@ -1,10 +1,14 @@
 import "./ProductsGrid.css";
 import { useState } from "react";
 import Product from "./Product";
+import { cartItemType } from "../Types/Types";
 
 import { itemIDContext } from "../Contexts/itemIDContext";
 
-export default function ProductsGrid({ products }) {
+const ProductsGrid: React.FunctionComponent<{
+  products: cartItemType[];
+}> = ({ products }) => {
+  // export default function ProductsGrid({ products }) {
   const [itemID, setItemID] = useState(0);
   return (
     <itemIDContext.Provider value={{ itemID, setItemID }}>
@@ -15,4 +19,6 @@ export default function ProductsGrid({ products }) {
       </div>
     </itemIDContext.Provider>
   );
-}
+};
+
+export default ProductsGrid;

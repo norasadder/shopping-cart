@@ -2,13 +2,20 @@ import "./CartItem.css";
 import { useContext } from "react";
 import { CartItemsContext } from "../Contexts/cartItemsContext";
 import { totalAmountContext } from "../Contexts/totalAmountContext";
-
-export default function CartItem({ id, name, price }) {
+import { cartItemType } from "../Types/Types";
+const CartItem: React.FunctionComponent<{
+  id: number;
+  name: string;
+  price: number;
+}> = ({ id, name, price }) => {
+  // export default function CartItem({ id, name, price }) {
   const { setCartItems } = useContext(CartItemsContext);
   const { setTotalAmount } = useContext(totalAmountContext);
   function deleteCartItem() {
-    setCartItems((cartItems) => cartItems.filter((item) => item.id !== id));
-    setTotalAmount((totalAmount) => totalAmount - parseInt(price));
+    setCartItems((cartItems: cartItemType[]) =>
+      cartItems.filter((item) => item.id !== id)
+    );
+    setTotalAmount((totalAmount) => totalAmount - price);
   }
 
   return (
@@ -23,4 +30,6 @@ export default function CartItem({ id, name, price }) {
       </button>
     </div>
   );
-}
+};
+
+export default CartItem;

@@ -3,7 +3,9 @@ import "./CheckoutForm.css";
 import { useContext } from "react";
 import { CartItemsContext } from "../Contexts/cartItemsContext";
 import { totalAmountContext } from "../Contexts/totalAmountContext";
-export default function CheckoutForm({ setCheckout }) {
+const CheckoutForm: React.FunctionComponent<{
+  setCheckout: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ setCheckout }) => {
   const { cartItems, setCartItems } = useContext(CartItemsContext);
   const { totalAmount, setTotalAmount } = useContext(totalAmountContext);
   const [name, setName] = useState("");
@@ -13,7 +15,7 @@ export default function CheckoutForm({ setCheckout }) {
     setCheckout(false);
   }
 
-  async function completeCheckout(e) {
+  async function completeCheckout(e: React.SyntheticEvent) {
     e.preventDefault();
     if (name == "" || email == "") {
       return;
@@ -41,12 +43,12 @@ export default function CheckoutForm({ setCheckout }) {
     }
   }
 
-  function onNameChange(e) {
-    setName(e.target.value);
+  function onNameChange(e: React.FormEvent<HTMLInputElement>) {
+    setName(e.currentTarget.value);
   }
 
-  function onEmailChange(e) {
-    setEmail(e.target.value);
+  function onEmailChange(e: React.FormEvent<HTMLInputElement>) {
+    setEmail(e.currentTarget.value);
   }
 
   return (
@@ -64,4 +66,6 @@ export default function CheckoutForm({ setCheckout }) {
       </form>
     </div>
   );
-}
+};
+
+export default CheckoutForm;

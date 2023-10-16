@@ -4,7 +4,10 @@ import { useContext } from "react";
 import { CartItemsContext } from "../Contexts/cartItemsContext";
 import { totalAmountContext } from "../Contexts/totalAmountContext";
 
-export default function Cart({ setCheckout }) {
+const Cart: React.FunctionComponent<{
+  setCheckout: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({ setCheckout }) => {
+  // export default function Cart({ setCheckout }) {
   const { cartItems } = useContext(CartItemsContext);
   const { totalAmount } = useContext(totalAmountContext);
   function handleCheckout() {
@@ -31,4 +34,6 @@ export default function Cart({ setCheckout }) {
       </div>
     </div>
   );
-}
+};
+
+export default Cart;

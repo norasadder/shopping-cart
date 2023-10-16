@@ -3,18 +3,23 @@ import { useContext } from "react";
 import { CartItemsContext } from "../Contexts/cartItemsContext";
 import { totalAmountContext } from "../Contexts/totalAmountContext";
 import { itemIDContext } from "../Contexts/itemIDContext";
+import { cartItemType } from "../Types/Types";
 
-export default function Product({ name, price }) {
+const Product: React.FunctionComponent<{
+  name: string;
+  price: number;
+}> = ({ name, price }) => {
+  // export default function Product({ name, price }) {
   const { setCartItems } = useContext(CartItemsContext);
   const { setTotalAmount } = useContext(totalAmountContext);
   const { itemID, setItemID } = useContext(itemIDContext);
 
   function addCartItem() {
-    setCartItems((cartItems) => [
+    setCartItems((cartItems: cartItemType[]) => [
       ...cartItems,
       { id: itemID, name: name, price: price },
     ]);
-    setTotalAmount((totalAmount) => totalAmount + parseInt(price));
+    setTotalAmount((totalAmount) => totalAmount + price);
     setItemID((itemID) => itemID + 1);
   }
 
@@ -30,4 +35,6 @@ export default function Product({ name, price }) {
       </button>
     </div>
   );
-}
+};
+
+export default Product;

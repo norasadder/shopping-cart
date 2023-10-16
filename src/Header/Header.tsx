@@ -1,6 +1,9 @@
 import "./Header.css";
 
-export default function Header({ onClick }) {
+const Header: React.FunctionComponent<{
+  onClick: () => void;
+}> = ({ onClick }) => {
+  // export default function Header({ onClick }) {
   return (
     <div className="header">
       <button onClick={onClick}>
@@ -8,4 +11,6 @@ export default function Header({ onClick }) {
       </button>
     </div>
   );
-}
+};
+
+export default Header;
