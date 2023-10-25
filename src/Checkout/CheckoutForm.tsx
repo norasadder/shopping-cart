@@ -17,7 +17,7 @@ const CheckoutForm: React.FunctionComponent<{
 
   async function completeCheckout(e: React.SyntheticEvent) {
     e.preventDefault();
-    if (name == "" || email == "") {
+    if (name === "" || email === "") {
       return;
     }
     let data = {
@@ -27,7 +27,7 @@ const CheckoutForm: React.FunctionComponent<{
       email: { email },
     };
     try {
-      const response = await fetch("http://localhost:3000/notes", {
+      await fetch("http://localhost:3000/notes", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
